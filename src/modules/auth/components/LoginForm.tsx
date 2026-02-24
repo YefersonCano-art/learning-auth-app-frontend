@@ -45,6 +45,11 @@ const LoginForm = () => {
     });
 
     if (response.ok) {
+      const result = await response.json();
+      localStorage.setItem("token", result.token);
+      localStorage.setItem("user", JSON.stringify(result.user));
+      toast.success("¡Inicio de sesión exitoso!");
+
       navigate("/dashboard");
     } else {
       const error = await response.json();
