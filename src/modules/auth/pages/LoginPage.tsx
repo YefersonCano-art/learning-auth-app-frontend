@@ -1,4 +1,4 @@
-import AuthImage from "../../../assets/authImage/authImage";
+import AuthImage from "../../../assets/authImage/AuthImage";
 import LoginForm from "../components/LoginForm";
 
 export const LoginPage = () => {
