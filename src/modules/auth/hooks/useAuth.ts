@@ -1,7 +1,9 @@
+import { getStoredToken } from "../services/session.service";
+
 export const useAuth = () => {
-  const token = localStorage.getItem("token");
+  const token = getStoredToken();
 
   return {
-    isAuthenticated: !!token
+    isAuthenticated: !!token,
   };
 };

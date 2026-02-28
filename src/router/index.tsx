@@ -1,8 +1,14 @@
-import { createBrowserRouter } from "react-router-dom";
-import { LoginPage, RegisterPage } from "../modules/auth";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
+import { LoginPage, RegisterPage } from "../modules/auth";
+import { DashboardPage } from "../modules/dashboard";
+import { NotFoundPage } from "../modules/404";
 
 export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to="/login" replace />,
+  },
   {
     path: "/login",
     element: <LoginPage />,
@@ -16,9 +22,17 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <h1>Dashboard ruta</h1>,
+        element: <DashboardPage />,
       },
     ],
+  },
+  {
+    path: "/404",
+    element: <NotFoundPage />,
+  },
+  {
+    path: "*",
+    element: <Navigate to="/404" replace />,
   },
 ]);
 
