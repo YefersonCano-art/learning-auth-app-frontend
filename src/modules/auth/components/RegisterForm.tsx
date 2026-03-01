@@ -47,7 +47,9 @@ const RegisterForm = () => {
 
   const navigate = useNavigate();
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  const API_BASE_URL = (
+    import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api"
+  ).replace(/\/$/, "");
 
   const onSubmit: SubmitHandler<RegisterFormData> = async (data) => {
     console.log("Datos del formulario:", data);
