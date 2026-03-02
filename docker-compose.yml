@@ -1,0 +1,16 @@
+services:
+  frontend:
+    # ---- image build ----
+    image: yefersoncano/login-jwt:frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL}
+    # ---- container runtime ----
+    container_name: login-jwt-frontend
+    ports:
+      - "3301:80"
+    restart: unless-stopped
+
+# docker compose up -d --build
